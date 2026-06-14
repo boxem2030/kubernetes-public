@@ -13,6 +13,8 @@ spec:
       labels:
         app: nginx-app
     spec:
+      imagePullSecrets:
+      - name: ecr-secret
       containers:
       - name: nginx-app
         image: 185561783944.dkr.ecr.ap-northeast-2.amazonaws.com/eks-nginx:v1.0
