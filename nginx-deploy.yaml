@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: nginx-app-deploy
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: nginx-app
@@ -13,11 +13,9 @@ spec:
       labels:
         app: nginx-app
     spec:
-      imagePullSecrets:
-      - name: ecr-secret2
       containers:
       - name: nginx-app
-        image: 185561783944.dkr.ecr.ap-northeast-2.amazonaws.com/eks-nginx:v2.0
+        image: boxem2030/nginxweb:v1.0
         ports:
         - containerPort: 80
         resources:
